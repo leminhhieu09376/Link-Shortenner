@@ -11,10 +11,11 @@ const LinkResult = ({ inputValue }) => {
     const fetchData = async () => {
         try {
             setLoading(true)
+            setError(false)
             const res = await axios(`https://api.shrtco.de/v2/shorten?url=${inputValue}`)
             setSorttenLink(res.data.result.full_short_link)
-        } catch (error) {
-            setError(error)
+        } catch (err) {
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -36,7 +37,7 @@ const LinkResult = ({ inputValue }) => {
     if (loading) {
         return <p className="noData">Loading...</p>
     }
-    if (error) {
+    if (error === true) {
         return <p className="noData">Some thing went wrong</p>
     }
 
