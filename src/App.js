@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Bai1 from './Test/Bai1';
+import Bai2 from './Test/Bai2';
+import Bai3 from './Test/Bai3';
+import BackgoundAnimate from './BackgoundAnimate';
+import LinkResult from './LinkResult';
+import { useState } from 'react';
 function App() {
+  // Bai 3 
+  const [inputValue, setInputValue] = useState("")
+  //
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container' >
+      <Bai1 />
+      <Bai2 />
+
+
+      {/* Bai 3 */}
+      <Bai3 setInputValue={setInputValue} />
+      <BackgoundAnimate />
+      <LinkResult inputValue={inputValue} />
     </div>
   );
 }
